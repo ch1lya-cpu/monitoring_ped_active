@@ -1,0 +1,22 @@
+{% extends 'monitoring/base.html' %}
+{% block event %}
+    <div class="left-ads-display col-lg-9">
+        <div class="row">
+            {% for event in event_list %}
+                <div class="col-md-4 product-men">
+                    <div class="human-shoe-info editContent text-center ">
+                        <div class="item-info-human">
+                            <h4>
+                                <!--<a href="" class="editContent">-->
+                                    {{ event.date_start }}
+                                    {{ event.date_end }}
+                                    {{ event.event_name }}
+                                <!-- </a>-->
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock event %}

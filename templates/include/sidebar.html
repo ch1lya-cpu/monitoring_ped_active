@@ -1,0 +1,33 @@
+<div class="search-bar w3layouts-newsletter">
+    <h3 class="sear-head editContent">Поиск преподавателя</h3>
+
+        <form action="" method="get" class="form-inline">
+            <input class="form-control mr-sm-2" type="search" name="q" placeholder="Введите ФИО..." aria-label="Search">
+            <button class="btn_sidebar btn-outline-success fa fa-search" type="submit"></button>
+        </form>
+<nav class="navbar navbar-light">
+        <div class="row">
+            <div class="col-10">
+                <div class="list-group" id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action " id="list-home-list" data-toggle="list"
+                       href="/index" role="tab" aria-controls="home">Мой профиль</a>
+                    <a class="list-group-item list-group-item-action active" id="list-profile-list" data-toggle="list"
+                       href="/teacher_list" role="tab" aria-controls="profile">Список преподавателей</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<script>
+    $(function () {
+        $('.navbar [href]').each(function () {
+            if (this.href === window.location.href) {
+                $(this).addClass('active');
+            }
+        });
+    });
+</script>
+
+
+

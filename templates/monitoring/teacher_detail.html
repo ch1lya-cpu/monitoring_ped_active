@@ -1,0 +1,43 @@
+{% extends 'monitoring/base.html' %}
+{% block teacher %}
+    <div class="left-ads-display col-lg-8">
+        <div class="row">
+            <div class="desc1-left col-md-5">
+                <img src="{{ teacher.image.url }}" class="img-fluid"
+                     alt="{{ teacher.second_name }}
+                          {{ teacher.first_name }}
+                          {{ teacher.father_name }}">
+            </div>
+            <div class="desc1-right col-md-6 pl-lg-4">
+                <h3 class="editContent">
+                    {{ teacher.second_name }}
+                    {{ teacher.first_name }}
+                    {{ teacher.father_name }}
+                </h3>
+                <h5 class="editContent"></h5>
+                <ul>
+                    <li style="list-style: none">
+                        <span><b>Место обучения:</b> {{ teacher.educ_place }}</span></li>
+                    <li style="list-style: none">
+                        <span><b>Роль:</b> {{ teacher.roles }}</span>
+                    </li>
+                    <li style="list-style: none">
+                        <span><b>Предыдущая аттестация:</b> {{ teacher.last_attest }}</span>
+                    </li>
+                    <li style="list-style: none">
+                        <span><b>Следующая аттестация:</b> {{ teacher.next_attest }}</span>
+                    </li>
+                    <li style="list-style: none">
+                        <span><b>Ранг:</b> {{ teacher.rang }}</span>
+                    </li>
+                    <li style="list-style: none">
+                        <span><b>Квалификация:</b> {{ teacher.qualification }}</span>
+                    </li>
+                </ul>
+                <form action="event_list.html" target="_self">
+                    <button type="button" class="btn btn-info">События преподавателя</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock teacher %}

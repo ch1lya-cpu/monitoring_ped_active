@@ -1,0 +1,23 @@
+{% extends 'monitoring/base.html' %}
+{% block teacher %}
+    <div class="left-ads-display col-lg-9">
+        <div class="row">
+            {% for teacher in teacher_list %}
+                <div class="col-md-4 product-men">
+                    <div class="human-shoe-info editContent text-center ">
+                        <div class="item-info-human">
+                            <h4>
+                                <a href="{{ teacher.get_absolute_url }}" class="editContent">
+                                    <img src="{{ teacher.image.url }}" class="img-fluid" alt="">
+                                    {{ teacher.second_name }}
+                                    {{ teacher.first_name }}
+                                    {{ teacher.father_name }}
+                                </a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock teacher %}

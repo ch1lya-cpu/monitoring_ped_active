@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="ab-info-main py-md-5 py-4 editContent">
+        <div class="container-fluid py-md-3">
+            <div class="row">
+                {% include 'include/sidebar.html' %}
+                {% block teacher %}
+
+                {% endblock teacher%}
+            </div>
+        </div>
+    </section>
+{% endblock content %}

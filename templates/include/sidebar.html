@@ -1,33 +1,32 @@
-<div class="search-bar w3layouts-newsletter">
-    <h3 class="sear-head editContent">Поиск преподавателя</h3>
+<div class="side_bar_inner">
+    <div class="column">
+        <div class="col-10">
+            <div style="margin-right: 50px" class="nav flex-column" role="tablist" aria-orientation="vertical">
 
-        <form action="" method="get" class="form-inline">
-            <input class="form-control mr-sm-2" type="search" name="q" placeholder="Введите ФИО..." aria-label="Search">
-            <button class="btn_sidebar btn-outline-success fa fa-search" type="submit"></button>
-        </form>
-<nav class="navbar navbar-light">
-        <div class="row">
-            <div class="col-10">
-                <div class="list-group" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action " id="list-home-list" data-toggle="list"
-                       href="/index" role="tab" aria-controls="home">Мой профиль</a>
-                    <a class="list-group-item list-group-item-action active" id="list-profile-list" data-toggle="list"
-                       href="/teacher_list" role="tab" aria-controls="profile">Список преподавателей</a>
-                </div>
+                <a href="{% url "profile" %}" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Мой
+                    профиль</a>
+                <a style="margin-top: 20px;" href="{% url "event" %}" class="btn btn-primary btn-lg" role="button"
+                   aria-pressed="true">Список
+                    моих событий</a>
+                <a style="margin: 20px;" href=""
+                   class="btn btn-primary btn-lg" role="button" aria-pressed="true">Добавить событие</a>
+                {% if request.user.is_staff %}
+                    <a href="{% url "teacher" %}" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Список
+                        преподавателей</a>
+                    <a style="margin: 20px;" href="{% url "registration" %}"
+                       class="btn btn-primary btn-lg" role="button" aria-pressed="true">Добавить преподавателя</a>
+
+                {% endif %}
+
             </div>
         </div>
-    </nav>
+    </div>
 </div>
 
-<script>
-    $(function () {
-        $('.navbar [href]').each(function () {
-            if (this.href === window.location.href) {
-                $(this).addClass('active');
-            }
-        });
-    });
-</script>
+
+
+
+
 
 
 

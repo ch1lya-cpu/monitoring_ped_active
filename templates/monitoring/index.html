@@ -1,13 +1,25 @@
-{% extends 'base.html' %}
+{% extends 'monitoring/base.html' %}
 {% block content %}
-    <section class="ab-info-main py-md-5 py-4 editContent">
-        <div class="container-fluid py-md-3">
+        <div class="block_content  py-md-3">
+                <h1 class="display-1">Информационная панель</h1>
             <div class="row">
-                {% include 'include/sidebar.html' %}
-                {% block teacher %}
 
-                {% endblock teacher%}
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h4 class="display-10">Количество всех событий в техникуме</h4>
+                        <p class="lead">
+                            {{ num_events }}</p>
+                    </div>
+                </div>
+                <p></p>
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h4 class="display-10">Количество сотрудников в техникуме</h4>
+                        <p class="lead">
+
+                            {{ num_teachers }}</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
 {% endblock content %}

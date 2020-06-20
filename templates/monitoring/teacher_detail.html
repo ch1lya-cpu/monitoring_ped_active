@@ -1,43 +1,75 @@
 {% extends 'monitoring/base.html' %}
-{% block teacher %}
-    <div class="left-ads-display col-lg-8">
+{% block content %}
+    <div class="teacher_detail_content col-md-5 ">
         <div class="row">
-            <div class="desc1-left col-md-5">
-                <img src="{{ teacher.image.url }}" class="img-fluid"
+            <div class="desc1-left col-md-6 pl-lg-4">
+                <img src="{{ teacher.photo.url }}" class="img_teacher_detail"
                      alt="{{ teacher.second_name }}
                           {{ teacher.first_name }}
                           {{ teacher.father_name }}">
+
+
+                    <p style="padding-bottom: 1px"></p>
+                <ul style="text-align: left">
+                    <li class="list-group-item ">
+                        <span><b>Количество событий преподавателя: </b> {{ activity_count}}</span>
+                    </li>
+                    <p style="margin-bottom: 12px"></p>
+                    <li class="list-group-item ">
+                        <span><b>Количество пройденных квалификационных курсов преподавателя: </b> {{ qualific_count}}</span>
+                    </li>
+                </ul>
+
             </div>
-            <div class="desc1-right col-md-6 pl-lg-4">
-                <h3 class="editContent">
+            <div class="desc1-left col-md-6 pl-lg-4">
+                <h3 class="list-group-item" style="text-align: center">
                     {{ teacher.second_name }}
                     {{ teacher.first_name }}
                     {{ teacher.father_name }}
                 </h3>
-                <h5 class="editContent"></h5>
-                <ul>
-                    <li style="list-style: none">
-                        <span><b>Место обучения:</b> {{ teacher.educ_place }}</span></li>
-                    <li style="list-style: none">
-                        <span><b>Роль:</b> {{ teacher.roles }}</span>
+                <p style="padding-bottom: 20px"></p>
+                <ul style="text-align: left">
+                    <li class="list-group-item" >
+                        <span><b>Образование: </b> {{ teacher.educ_name }}</span></li>
+                    <p style="padding-bottom: 1px"></p>
+
+                    <li class="list-group-item">
+                        <span><b>Занимаемая должность: </b> {{ teacher.position }}</span>
                     </li>
-                    <li style="list-style: none">
-                        <span><b>Предыдущая аттестация:</b> {{ teacher.last_attest }}</span>
+
+                    <p style="padding-bottom: 1px"></p>
+                    <li class="list-group-item">
+                        <span><b>Преподаваемые дисциплины: </b> {{ teacher.subjects }}</span>
                     </li>
-                    <li style="list-style: none">
-                        <span><b>Следующая аттестация:</b> {{ teacher.next_attest }}</span>
+
+                    <p style="padding-bottom: 1px"></p>
+                    <li class="list-group-item">
+                        <span><b>Квалификация: </b> {{ teacher.qualification }}</span>
                     </li>
-                    <li style="list-style: none">
-                        <span><b>Ранг:</b> {{ teacher.rang }}</span>
+
+                    <p style="padding-bottom: 1px"></p>
+                    <li class="list-group-item">
+                        <span><b>Разряд/соответсвие ПС: </b> {{ teacher.rang }}</span>
                     </li>
-                    <li style="list-style: none">
-                        <span><b>Квалификация:</b> {{ teacher.qualification }}</span>
+
+                    <p style="padding-bottom: 1px"></p>
+                    <li class="list-group-item">
+                        <span><b>ПЦК, к которому относится преподаватель: </b> {{ pck.pck }}</span>
+                    </li>
+
+                    <p style="padding-bottom: 1px"></p>
+                    <li class="list-group-item">
+                        <span><b>Последняя аттестация: </b> {{ teacher.last_attest }}</span>
+                    </li>
+
+                    <p style="padding-bottom: 1px"></p>
+                    <li class="list-group-item">
+                        <span><b>Следующая аттестация: </b> {{ teacher.next_attest }}</span>
                     </li>
                 </ul>
-                <form action="event_list.html" target="_self">
-                    <button type="button" class="btn btn-info">События преподавателя</button>
-                </form>
+
             </div>
         </div>
     </div>
-{% endblock teacher %}
+{% endblock content %}
+

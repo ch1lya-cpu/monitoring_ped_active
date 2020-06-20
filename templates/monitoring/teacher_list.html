@@ -1,23 +1,59 @@
 {% extends 'monitoring/base.html' %}
-{% block teacher %}
-    <div class="left-ads-display col-lg-9">
-        <div class="row">
-            {% for teacher in teacher_list %}
-                <div class="col-md-4 product-men">
-                    <div class="human-shoe-info editContent text-center ">
-                        <div class="item-info-human">
-                            <h4>
-                                <a href="{{ teacher.get_absolute_url }}" class="editContent">
-                                    <img src="{{ teacher.image.url }}" class="img-fluid" alt="">
-                                    {{ teacher.second_name }}
-                                    {{ teacher.first_name }}
-                                    {{ teacher.father_name }}
-                                </a>
-                            </h4>
-                        </div>
-                    </div>
+
+{% block content %}
+    <div id="card-deck" class="row">
+        {% for teacher in teacher %}
+            <div class="card" style="margin: 20px; ">
+                <img src="{{ teacher.photo.url }}" class="img_card_teacher" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ teacher.second_name }}
+                        <p></p>
+                        {{ teacher.first_name }}
+                        {{ teacher.father_name }}</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="{% url 'teacher_detail' teacher.id %}"
+                                                       class="card-link">Профиль
+                            преподавателя</a></li>
+                        <li class="list-group-item"><a href="#" class="card-link">Мероприятия
+                            преподавателя</a></li>
+                        <li class="list-group-item"><a href="#" class="card-link">В каком ПЦК
+                            находится
+                            преподаватель</a></li>
+                    </ul>
                 </div>
-            {% endfor %}
-        </div>
+                <div class="card-footer">
+                    <small class="text-muted"><a style="margin: 2px; font-size: 13px"
+                                                 href="{% url "teacher_update" teacher.id %}"
+                                                 class="btn btn-warning" role="button" aria-pressed="true">Редактировать
+                        преподавателя</a>
+                        <a style="margin: 2px; font-size: 13px" href="{% url "teacher_delete" teacher.id %}"
+                           class="btn btn-danger" data-tarole="button"
+                           aria-pressed="true">Удалить
+                            преподавателя</a>
+                    </small>
+                </div>
+
+            </div>
+
+        {% endfor %}
     </div>
-{% endblock teacher %}
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+{% endblock content %}

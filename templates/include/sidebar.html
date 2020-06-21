@@ -5,19 +5,19 @@
 
                 <a href="{% url "profile" %}" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Мой
                     профиль</a>
-                <a style="margin-top: 20px;" href="{% url "event" %}" class="btn btn-primary btn-lg" role="button"
+                <a style="margin-top: 20px;" href="{% url "pck" %}" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Мой ПЦК</a>
+                <a style="margin-top: 20px;" href="{% url "event" %}" class="btn btn-info btn-lg" role="button"
                    aria-pressed="true">Список
-                    моих событий</a>
-                <a style="margin: 20px;" href=""
-                   class="btn btn-primary btn-lg" role="button" aria-pressed="true">Добавить событие</a>
+                     событий</a>
+                <a style="margin: 20px;" href="{% url "createEvent" %}"
+                   class="btn btn-success btn-lg" role="button" aria-pressed="true">Добавить событие</a>
+
                 {% if request.user.is_staff %}
-                    <a href="{% url "teacher" %}" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Список
+                    <a href="{% url "teacher" %}" class="btn btn-info btn-lg" role="button" aria-pressed="true">Список
                         преподавателей</a>
                     <a style="margin: 20px;" href="{% url "registration" %}"
-                       class="btn btn-primary btn-lg" role="button" aria-pressed="true">Добавить преподавателя</a>
-
+                       class="btn btn-success btn-lg" role="button" aria-pressed="true">Добавить преподавателя</a>
                 {% endif %}
-
             </div>
         </div>
     </div>

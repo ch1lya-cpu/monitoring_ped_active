@@ -176,7 +176,7 @@ class Teacher(models.Model):
     )
 
     # Класс преподавателей
-    user = models.OneToOneField(User, null=True, max_length=100, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, verbose_name="Имя профиля", null=True, max_length=100, on_delete=models.CASCADE)
     second_name = models.CharField("Фамилия", max_length=45)
     first_name = models.CharField("Имя", max_length=45)
     father_name = models.CharField("Отчество", max_length=45)
@@ -189,7 +189,7 @@ class Teacher(models.Model):
     qualification = models.CharField("Квалификация", max_length=60, null=True)
     rang = models.CharField("Разряд/соответсвие ПС", max_length=45, null=True)
     role = models.CharField("Роль сотрудника в системе", max_length=100, null=True, choices=NAME_ROLE)
-    pck_id = models.OneToOneField(PCK, null=True, max_length=100, on_delete=models.CASCADE)
+    pck = models.ForeignKey(PCK, verbose_name="ПЦК", null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.second_name + ' ' + self.first_name + ' ' + self.father_name
@@ -207,12 +207,6 @@ class Activity(models.Model):
         return self.teachers.second_name + " " + self.teachers.first_name + " / " + self.events.event_name
 
 
-class Teachers_in_PCK(models.Model):
-    teachers = models.ForeignKey(Teacher, null=True, on_delete=models.SET_NULL)
-    pck = models.ForeignKey(PCK, null=True, on_delete=models.SET_NULL)
-
-    def __str__(self):
-        return self.pck.pck_name + " / " + self.teachers.second_name + " / " + self.teachers.first_name
 
 
 class Qualific_course_for_Teachers(models.Model):

@@ -1,9 +1,9 @@
 {% extends 'monitoring/base.html' %}
 
 {% block content %}
-    <div id="card-deck" class="row">
+    <div id="card-deck" class="row row-cols-4">
         {% for teacher in teacher %}
-            <div class="card" style="margin: 20px; ">
+            <div class="card" style="margin: 20px; width: 15%">
                 <img src="{{ teacher.photo.url }}" class="img_card_teacher" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ teacher.second_name }}
@@ -37,23 +37,4 @@
 
         {% endfor %}
     </div>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
 {% endblock content %}

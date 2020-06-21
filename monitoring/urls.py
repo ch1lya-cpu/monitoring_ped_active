@@ -17,9 +17,11 @@ urlpatterns = [
     path("teacher_delete/<str:pk>/", views.deleteTeacher, name='teacher_delete'),
     # основной контент (события)
     path("event/", views.eventView, name='event'),
-    #path("event/<str:pk>/", views.eventDetail, name='event_detail'),
-    # path("create_teacher/", views.createTeacher, name='create_teacher'),
-    # path("event_update/<str:pk>/", views.updateTeacher, name='event_update'),
-    # path("event_delete/<str:pk>/", views.deleteTeacher, name='event_delete'),
+    path("event/<str:pk>/", views.eventDetail, name='event_detail'),
+    path("event_update/<str:pk>/", views.updateEvent, name='event_update'),
+    path("event_delete/<str:pk>/", views.deleteEvent, name='event_delete'),
+    path("createEvent/", views.createEvent, name='createEvent'),
+    # основной контент (ПЦК)
+    path("pck/", views.pckView, name='pck'),
 
 ]

@@ -9,5 +9,4 @@ admin.site.register(Tag)
 admin.site.register(Event)
 # связующие
 admin.site.register(Activity)
-admin.site.register(Teachers_in_PCK)
 admin.site.register(Qualific_course_for_Teachers)

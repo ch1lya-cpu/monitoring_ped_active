@@ -4,46 +4,35 @@
         <div class="row">
             <div class="desc1-left col-md-6 pl-lg-4">
                 <h3 class="list-group-item" style="text-align: center">
-                    {{ event.tags}}
+                   <b>Название мероприятия: </b>
+                    <br>
+                    {{ event.event_name}}
                 </h3>
                 <p style="padding-bottom: 20px"></p>
                 <ul style="text-align: left">
                     <li class="list-group-item" >
-                        <span><b>Образование: </b> {{ teacher.educ_name }}</span></li>
+                        <span><b>Категория мероприятия: </b> {{ event.tags }}</span></li>
                     <p style="padding-bottom: 1px"></p>
 
                     <li class="list-group-item">
-                        <span><b>Занимаемая должность: </b> {{ teacher.position }}</span>
+                        <span><b>Дата начала мероприятия: </b> {{ event.date_start }}</span>
                     </li>
 
                     <p style="padding-bottom: 1px"></p>
                     <li class="list-group-item">
-                        <span><b>Преподаваемые дисциплины: </b> {{ teacher.subjects }}</span>
+                        <span><b>Дата окончания мероприятия: </b> {{ event.date_end }}</span>
                     </li>
 
                     <p style="padding-bottom: 1px"></p>
                     <li class="list-group-item">
-                        <span><b>Квалификация: </b> {{ teacher.qualification }}</span>
+                        <span><b>Роль преподавателя в мероприятии: </b> {{ event.teacher_role }}</span>
                     </li>
-
                     <p style="padding-bottom: 1px"></p>
                     <li class="list-group-item">
-                        <span><b>Разряд/соответсвие ПС: </b> {{ teacher.rang }}</span>
-                    </li>
-
-                    <p style="padding-bottom: 1px"></p>
-                    <li class="list-group-item">
-                        <span><b>ПЦК, к которому относится преподаватель: </b> {{ teacher.pck_id }}</span>
-                    </li>
-
-                    <p style="padding-bottom: 1px"></p>
-                    <li class="list-group-item">
-                        <span><b>Последняя аттестация: </b> {{ teacher.last_attest }}</span>
-                    </li>
-
-                    <p style="padding-bottom: 1px"></p>
-                    <li class="list-group-item">
-                        <span><b>Следующая аттестация: </b> {{ teacher.next_attest }}</span>
+                        {% if uploaded_file_url %}
+    <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+  {% endif %}
+                        <span><b>Подтверждающий документ: </b> {{ event.document_for_event }}</span>
                     </li>
                 </ul>
             </div>

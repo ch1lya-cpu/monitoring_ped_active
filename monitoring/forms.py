@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
 
-from .models import Teacher, Teachers_in_PCK
+from .models import Teacher, Event
 
 
 class TeacherForm(ModelForm):
@@ -11,6 +11,11 @@ class TeacherForm(ModelForm):
         model = Teacher
         fields = '__all__'
 
+
+class EventForm(ModelForm):
+    class Meta:
+        model = Event
+        fields = '__all__'
 
 
 class CreateUserForm(UserCreationForm):

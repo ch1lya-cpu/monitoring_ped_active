@@ -1,0 +1,9 @@
+{% extends 'monitoring/base.html' %}
+{% load static %}
+{% block content %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form_activity.as_p }}
+         <button type="submit" class="btn btn-primary">Прикрепить</button>
+    </form>
+{% endblock %}

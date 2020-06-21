@@ -7,34 +7,22 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ event.event_name }}
                         <p></p>
-                        {{ event.category_name}}
+                        {{ event.category_name }}
                         {{ event.subcategory_name }}</h5>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><a href="{% url "event_detail" event.id %}"
-                                                       class="card-link">Профиль
-                            преподавателя</a></li>
-                        <li class="list-group-item"><a href="#" class="card-link">Мероприятия
-                            преподавателя</a></li>
-                        <li class="list-group-item"><a href="#" class="card-link">В каком ПЦК
-                            находится
-                            преподаватель</a></li>
+                                                       class="card-link">Полное событие</a></li>
                     </ul>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted"><a style="margin: 2px; font-size: 13px"
-                                                 href="{% url "event_update" event.id %}"
-                                                 class="btn btn-warning" role="button" aria-pressed="true">Редактировать
-                        преподавателя</a>
+                    <small class="text-muted">
+                        <a style="margin: 2px; font-size: 13px" href="{% url "event_update" event.id %}"
+                           class="btn btn-warning" role="button" aria-pressed="true">Редактировать преподавателя</a>
                         <a style="margin: 2px; font-size: 13px" href="{% url "event_delete" event.id %}"
-                           class="btn btn-danger" data-tarole="button"
-                           aria-pressed="true">Удалить
-                            преподавателя</a>
+                           class="btn btn-danger" data-tarole="button" aria-pressed="true">Удалить преподавателя</a>
                     </small>
                 </div>
-
             </div>
-
         {% endfor %}
-
     </div>
 {% endblock content %}

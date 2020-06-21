@@ -1,9 +1,8 @@
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
-from django import forms
 from django.contrib.auth.models import User
 
-from .models import Teacher, Event
+from .models import Teacher, Event, Activity
 
 
 class TeacherForm(ModelForm):
@@ -15,6 +14,12 @@ class TeacherForm(ModelForm):
 class EventForm(ModelForm):
     class Meta:
         model = Event
+        fields = '__all__'
+
+
+class ActivityForm(ModelForm):
+    class Meta:
+        model = Activity
         fields = '__all__'
 
 

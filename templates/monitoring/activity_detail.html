@@ -1,0 +1,21 @@
+{% extends 'monitoring/base.html' %}
+{% block content %}
+    <div class="teacher_detail_content col-md-5 ">
+        <div class="row">
+            <div class="desc1-left col-md-6 pl-lg-4">
+                <h3 class="list-group-item" style="text-align: center">
+                      <li class="list-group-item">
+                        <span><b>Преподаватель: </b> {{ activity.teachers }}</span></li>
+                    <p style="padding-bottom: 1px"></p>
+
+                    <li class="list-group-item">
+                        <span><b>Событие: </b> {{ activity.events }}</span>
+                    </li>
+                </h3>
+                <p style="padding-bottom: 20px"></p>
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+

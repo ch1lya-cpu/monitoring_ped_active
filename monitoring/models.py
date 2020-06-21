@@ -158,7 +158,7 @@ class Event(models.Model):
     teacher_role = models.CharField("Роль преподавателя в мероприятии", max_length=60, null=True,
                                     choices=TEACHER_ROLE_IN_EVENT)
     document_for_event = models.FileField('Потдверждающий документ', upload_to='document_for_event/', null=True)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ForeignKey(Tag, verbose_name="Категория и подкатегория", null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.event_name
@@ -200,11 +200,16 @@ class Teacher(models.Model):
 
 
 class Activity(models.Model):
-    teachers = models.ForeignKey(Teacher, null=True, on_delete=models.SET_NULL)
-    events = models.ForeignKey(Event, null=True, on_delete=models.SET_NULL)
+    teachers = models.ForeignKey(Teacher, verbose_name="Преподаватель", null=True, on_delete=models.SET_NULL)
+    events = models.ForeignKey(Event, verbose_name="Событие", null=True, on_delete=models.SET_NULL)
+    note = models.CharField('Заметка к событию',max_length=200, null=True)
 
     def __str__(self):
         return self.teachers.second_name + " " + self.teachers.first_name + " / " + self.events.event_name
+
+    class Meta:
+        verbose_name = "Активность"
+        verbose_name_plural = "Активности"
 
 
 

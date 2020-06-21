@@ -21,6 +21,12 @@ urlpatterns = [
     path("event_update/<str:pk>/", views.updateEvent, name='event_update'),
     path("event_delete/<str:pk>/", views.deleteEvent, name='event_delete'),
     path("createEvent/", views.createEvent, name='createEvent'),
+    # основной контент (активности)
+    path("activity/", views.activityView, name='activity'),
+    path("createActivity/", views.createActivity, name='createActivity'),
+    path("activity/<str:pk>/", views.activityDetail, name='activity_detail'),
+    path("activity_update/<str:pk>/", views.updateActivity, name='activity_update'),
+    path("activity_delete/<str:pk>/", views.deleteActivity, name='activity_delete'),
     # основной контент (ПЦК)
     path("pck/", views.pckView, name='pck'),
 

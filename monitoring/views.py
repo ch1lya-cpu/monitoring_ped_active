@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
 from django.core.paginator import Paginator
 
-from .forms import TeacherForm, EventForm
+from .forms import *
 from .models import *
 from .decorators import unauthenticated_user
 
@@ -50,14 +50,14 @@ def teacherDetail(request, pk):
     teacher = Teacher.objects.get(id=pk)
     activitys = teacher.activity_set.all()
     activity_count = activitys.count()
-    pcks = teacher.teachers_in_pck_set.get(teachers_id=teacher.id)
+    # pcks = teacher.teachers_in_pck_set.get(teachers_id=teacher.id)
     qualifics = teacher.qualific_course_for_teachers_set.all()
     qualific_count = qualifics.count()
 
     Event.objects.filter(activity__teachers_id=teacher)
 
     context = {'teacher': teacher, 'activitys': activitys,
-               'activity_count': activity_count, 'pck': pcks,
+               'activity_count': activity_count,
                'qualifics': qualifics, 'qualific_count': qualific_count}
     return render(request, 'monitoring/teacher_detail.html', context)
 
@@ -96,13 +96,11 @@ def logoutUser(request):
 
 @login_required(login_url='login')
 def profilePage(request):
-    events = Activity.objects.filter(teachers=request.user)
-
     #  total_events = events_profile.count()
 
     #  print('EVENTS:', events_profile)
 
-    context = {"events": events}
+    context = {}
     return render(request, 'monitoring/profile.html', context)
 
 
@@ -114,7 +112,6 @@ def registrationPage(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            username = form.cleaned_data.get('username')
 
             group = Group.objects.get(name='Преподаватель')
             user.groups.add(group)
@@ -179,10 +176,11 @@ def eventView(request):
 
 @login_required(login_url='login')
 def eventDetail(request, pk):
-    event = Event.objects.get(id=pk)
-    events = event.activity_set.all()
+    event_detail = Event.objects.get(id=pk)
+    activity = event_detail.activity_set.all()
+    tags = Tag.objects.all()
 
-    context = {'event': event, }
+    context = {'event': event_detail, 'activity': activity,'tag':tags}
     return render(request, 'monitoring/event_detail.html', context)
 
 
@@ -228,13 +226,61 @@ def deleteEvent(request, pk):
     context = {'item': event}
     return render(request, 'monitoring/delete_event.html', context)
 
-def simple_upload(request):
-    if request.method == 'POST' and request.FILES['myfile']:
-        myfile = request.FILES['myfile']
-        fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile)
-        uploaded_file_url = fs.url(filename)
-        return render(request, '/simple_upload.html', {
-            'uploaded_file_url': uploaded_file_url
-        })
-    return render(request, 'core/simple_upload.html')
+
+################### АКТИВНОСТИ ###############################################
+@login_required(login_url='login')
+def activityView(request):
+    activite = Activity.objects.all()
+
+    context = {'activity': activite}
+
+    return render(request, 'monitoring/activity_list.html', context)
+
+
+@login_required(login_url='login')
+def activityDetail(request, pk):
+    activity = Activity.objects.get(id=pk)
+
+    context = {'activity': activity, }
+    return render(request, 'monitoring/activity_detail.html', context)
+
+
+@login_required(login_url='login')
+def createActivity(request):
+    form_activity = ActivityForm(request.POST)
+
+    if request.method == 'POST':
+        form_activity = EventForm(request.POST)
+        if form_activity.is_valid():
+            form_activity.save()
+            return redirect('/event')
+
+    context = {'form': form_activity}
+    return render(request, 'monitoring/activity_form.html', context)
+
+
+@login_required(login_url='login')
+def updateActivity(request, pk):
+    activity = Activity.objects.get(id=pk)
+    form_activity = EventForm(instance=activity)
+
+    if request.method == 'POST':
+        form_activity = updateActivity(request.POST, instance=activity)
+
+        if form_activity.is_valid():
+            form_activity.save()
+            return redirect('/activity/' + pk)
+
+    context = {'form': form_activity}
+    return render(request, 'monitoring/activity_form.html', context)
+
+
+@login_required(login_url='login')
+def deleteActivity(request, pk):
+    activity = Activity.objects.get(id=pk)
+    if request.method == "POST":
+        activity.delete()
+        return redirect('/activity')
+
+    context = {'item': activity}
+    return render(request, 'monitoring/delete_event.html', context)

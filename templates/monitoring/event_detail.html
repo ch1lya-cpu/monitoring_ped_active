@@ -4,14 +4,20 @@
         <div class="row">
             <div class="desc1-left col-md-6 pl-lg-4">
                 <h3 class="list-group-item" style="text-align: center">
-                   <b>Название мероприятия: </b>
+                    <b>Название мероприятия: </b>
                     <br>
-                    {{ event.event_name}}
+                    {{ event.event_name }}
+                     <p style="padding-bottom: 1px"></p>
+
                 </h3>
                 <p style="padding-bottom: 20px"></p>
                 <ul style="text-align: left">
-                    <li class="list-group-item" >
-                        <span><b>Категория мероприятия: </b> {{ event.tags }}</span></li>
+                    <li class="list-group-item">
+                        <span><b>Преподаватель, которому присвоено событие: </b> {{ activity.get.teachers }}</span>
+                    </li>
+                     <p style="padding-bottom: 20px"></p>
+                    <li class="list-group-item">
+                        <span><b>Категория мероприятия: </b> {{ event.tags}}</span></li>
                     <p style="padding-bottom: 1px"></p>
 
                     <li class="list-group-item">
@@ -29,9 +35,6 @@
                     </li>
                     <p style="padding-bottom: 1px"></p>
                     <li class="list-group-item">
-                        {% if uploaded_file_url %}
-    <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
-  {% endif %}
                         <span><b>Подтверждающий документ: </b> {{ event.document_for_event }}</span>
                     </li>
                 </ul>

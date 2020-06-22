@@ -1,0 +1,1 @@
+web: gunicorn django_VKR.wsgi --log-file -

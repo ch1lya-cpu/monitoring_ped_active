@@ -11,11 +11,12 @@
                         {{ event.subcategory_name }}</h5>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><a href="{% url "event_detail" event.id %}"
-                                                       class="card-link">Полное событие</a></li>
+                                                       class="card-link">Полное описание события</a></li>
                     </ul>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">
+                    <small class="text-muted"><a style="margin: 2px; font-size: 13px" href="{% url "activity"%}"
+                           class="btn btn-success" role="button" aria-pressed="true">Кнопка активности</a>
                         <a style="margin: 2px; font-size: 13px" href="{% url "event_update" event.id %}"
                            class="btn btn-warning" role="button" aria-pressed="true">Редактировать преподавателя</a>
                         <a style="margin: 2px; font-size: 13px" href="{% url "event_delete" event.id %}"

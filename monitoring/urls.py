@@ -4,7 +4,6 @@ from . import views
 urlpatterns = [
     # начальные страницы
     path('', views.index, name='index'),
-    path('profile/', views.profilePage, name='profile'),
     # Авторизация и регистрация
     path('login/', views.loginPage, name='login'),
     path('logout/', views.logoutUser, name='logout'),
@@ -18,15 +17,15 @@ urlpatterns = [
     # основной контент (события)
     path("event/", views.eventView, name='event'),
     path("event/<str:pk>/", views.eventDetail, name='event_detail'),
+    path("create_event/", views.createEvent, name='create_event'),
     path("event_update/<str:pk>/", views.updateEvent, name='event_update'),
     path("event_delete/<str:pk>/", views.deleteEvent, name='event_delete'),
-    path("createEvent/", views.createEvent, name='createEvent'),
     # основной контент (активности)
     path("activity/", views.activityView, name='activity'),
-    path("createActivity/", views.createActivity, name='createActivity'),
     path("activity/<str:pk>/", views.activityDetail, name='activity_detail'),
-    path("activity_update/<str:pk>/", views.updateActivity, name='activity_update'),
-    path("activity_delete/<str:pk>/", views.deleteActivity, name='activity_delete'),
+    path("create_activity/", views.createActivity, name='create_activity'),
+    path("update_activity/<str:pk>/", views.updateActivity, name='update_activity'),
+    path("delete_activity/<str:pk>/", views.deleteActivity, name='delete_activity'),
     # основной контент (ПЦК)
     path("pck/", views.pckView, name='pck'),
 

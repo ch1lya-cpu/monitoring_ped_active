@@ -1,37 +1,18 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import Group
 from django.contrib import messages
-
-from django.core.files.storage import FileSystemStorage
-from django.core.paginator import Paginator
-
 from .forms import *
 from .models import *
 from .decorators import unauthenticated_user
 
 
-# def listing(request):
-# teachers = Teacher.objects.all()
-#
-# paginator = Paginator(teachers, 2)  # 3 поста на каждой странице
-#
-#  page = paginator.get_page(1)
-#
-#  return render(request, 'monitoring/teacher_list.html', {'teachers': page.object_list})
-
-
 @login_required(login_url='login')
 def teacherView(request):
     teachers = Teacher.objects.filter(role='Преподаватель')
-    total_teacher = teachers.count()
 
-    activity = Activity.objects.all()
-
-    context = {'teacher': teachers, 'total_teacher': total_teacher, 'activity': activity}
-
+    context = {'teacher': teachers}
     return render(request, 'monitoring/teacher_list.html', context)
 
 
@@ -50,7 +31,6 @@ def teacherDetail(request, pk):
     teacher = Teacher.objects.get(id=pk)
     activitys = teacher.activity_set.all()
     activity_count = activitys.count()
-    # pcks = teacher.teachers_in_pck_set.get(teachers_id=teacher.id)
     qualifics = teacher.qualific_course_for_teachers_set.all()
     qualific_count = qualifics.count()
 
@@ -92,16 +72,6 @@ def loginPage(request):
 def logoutUser(request):
     logout(request)
     return redirect('login')
-
-
-@login_required(login_url='login')
-def profilePage(request):
-    #  total_events = events_profile.count()
-
-    #  print('EVENTS:', events_profile)
-
-    context = {}
-    return render(request, 'monitoring/profile.html', context)
 
 
 ################### ПРЕПОДАВАТЕЛИ ###############################################
@@ -180,7 +150,7 @@ def eventDetail(request, pk):
     activity = event_detail.activity_set.all()
     tags = Tag.objects.all()
 
-    context = {'event': event_detail, 'activity': activity,'tag':tags}
+    context = {'event': event_detail, 'activity': activity, 'tag': tags}
     return render(request, 'monitoring/event_detail.html', context)
 
 
@@ -250,10 +220,10 @@ def createActivity(request):
     form_activity = ActivityForm(request.POST)
 
     if request.method == 'POST':
-        form_activity = EventForm(request.POST)
-        if form_activity.is_valid():
-            form_activity.save()
-            return redirect('/event')
+        form_activity = ActivityForm(request.POST)
+    if form_activity.is_valid():
+        form_activity.save()
+        return redirect('/activity')
 
     context = {'form': form_activity}
     return render(request, 'monitoring/activity_form.html', context)
@@ -262,10 +232,10 @@ def createActivity(request):
 @login_required(login_url='login')
 def updateActivity(request, pk):
     activity = Activity.objects.get(id=pk)
-    form_activity = EventForm(instance=activity)
+    form_activity = ActivityForm(instance=activity)
 
     if request.method == 'POST':
-        form_activity = updateActivity(request.POST, instance=activity)
+        form_activity = ActivityForm(request.POST, instance=activity)
 
         if form_activity.is_valid():
             form_activity.save()

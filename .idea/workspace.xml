@@ -25,7 +25,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a325540c-12a1-459c-8b59-30cc866f4feb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_VKR/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_VKR/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monitoring/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/monitoring/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monitoring/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/monitoring/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monitoring/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/monitoring/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/include/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/include/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/monitoring/activity_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/monitoring/activity_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/monitoring/activity_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/monitoring/activity_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/monitoring/event_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/monitoring/event_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/monitoring/event_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/monitoring/event_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/monitoring/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/monitoring/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/monitoring/teacher_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/monitoring/teacher_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/monitoring/teacher_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/monitoring/teacher_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +68,6 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -96,7 +108,8 @@
       <option name="presentableId" value="Default" />
       <updated>1592740573908</updated>
       <workItem from="1592740576624" duration="15058000" />
-      <workItem from="1592817627838" duration="4470000" />
+      <workItem from="1592817627838" duration="6603000" />
+      <workItem from="1592907417525" duration="12915000" />
     </task>
     <servers />
   </component>
@@ -116,25 +129,29 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1592768310143">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1592925743809">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592768310143" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1592768310143">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592925743809" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1592925743809">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592768310143" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1592768310143">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592925743809" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1592925743809">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592768310143" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1592768310143">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592925743809" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1592925743809">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592768310143" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592925743809" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1592740705378">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1592740705378" />
+    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592910601183">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1592910601183" />
   </component>
 </project>

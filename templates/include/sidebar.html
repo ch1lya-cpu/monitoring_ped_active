@@ -3,15 +3,13 @@
         <div class="col-10">
             <div style="margin-right: 50px" class="nav flex-column" role="tablist" aria-orientation="vertical">
 
-                <a href="{% url "profile" %}" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Мой
-                    профиль</a>
-                <a style="margin-top: 20px;" href="{% url "pck" %}" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Мой ПЦК</a>
                 <a style="margin-top: 20px;" href="{% url "event" %}" class="btn btn-info btn-lg" role="button"
                    aria-pressed="true">Список
                      событий</a>
-                <a style="margin: 20px;" href="{% url "createEvent" %}"
+                <a style="margin: 20px;" href="{% url "create_event" %}"
                    class="btn btn-success btn-lg" role="button" aria-pressed="true">Добавить событие</a>
-
+                <a style="margin: 20px;" href="{% url "create_activity" %}"
+                   class="btn btn-success btn-lg" role="button" aria-pressed="true">Добавить активность</a>
                 {% if request.user.is_staff %}
                     <a href="{% url "teacher" %}" class="btn btn-info btn-lg" role="button" aria-pressed="true">Список
                         преподавателей</a>
